@@ -22,8 +22,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB , KC_Q  , KC_W  , KC_E  , KC_R  , KC_T  ,                          KC_Y , KC_U  , KC_I  , KC_O  , KC_P  ,KC_MINS,
         KC_LSFT, KC_A  , KC_S  , KC_D  , KC_F  , KC_G  ,                          KC_H , KC_J  , KC_K  , KC_L  ,KC_SCLN,MODRSFT,
         KC_LCTL, KC_Z  , KC_X  , KC_C  , KC_V  , KC_B  ,                          KC_N , KC_M  ,KC_COMM,KC_DOT ,KC_SLSH,MODRCTL,
-                         KC_LBRC,KC_RBRC,RAISE ,KC_SPC,KC_GRV  ,          _______,KC_ENT,LOWER ,KC_PLUS,KC_EQL ,
-                                                _______,_______,          KC_LALT,KC_LGUI
+                         KC_LBRC,KC_RBRC,RAISE ,KC_SPC ,KC_LALT,          _______,KC_ENT,LOWER ,KC_PLUS,KC_EQL ,
+                                                _______,KC_GRV ,          KC_LALT,KC_LGUI
     ),
 
     [_LOWER] = LAYOUT_5x6_5(
@@ -47,28 +47,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-            case GEN_CPF:
-                if (record->event.pressed) {
-		    // Random cpf
-		    SEND_STRING("16021620429");
-                } else {
-                    // when keycode GEN_CPF is released
-                }
-                break;
-            case GEN_CEP:
-                if (record->event.pressed) {
-		    SEND_STRING("72306-527");
-                } else {
-                    // when keycode GEN_CEP is released
-                }
-                break;
-            case GENCNPJ:
-                if (record->event.pressed) {
-		    SEND_STRING("77.508.121/0001-73");
-                } else {
-                    // when keycode GENCNPJ is released
-                }
-                break;
+        case GEN_CPF:
+            if (record->event.pressed) {
+                // Random cpf
+                SEND_STRING("16021620429");
+            } else {
+                // when keycode GEN_CPF is released
+            }
+            break;
+        case GEN_CEP:
+            if (record->event.pressed) {
+                SEND_STRING("72306-527");
+            } else {
+                // when keycode GEN_CEP is released
+            }
+            break;
+        case GENCNPJ:
+            if (record->event.pressed) {
+                SEND_STRING("77.508.121/0001-73");
+            } else {
+                // when keycode GENCNPJ is released
+            }
+            break;
     }
     return true;
 };
