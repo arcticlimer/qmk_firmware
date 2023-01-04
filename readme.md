@@ -25,9 +25,16 @@ nix develop
 make handwired/dactyl_manuform/5x6_5:arcticlimer
 ```
 
-
 ### Flashing
 ```sh
+make handwired/dactyl_manuform/5x6_5:arcticlimer:avrdude
+```
+
+
+#### Helper command for flashing
+```sh
+make handwired/dactyl_manuform/5x6_5:arcticlimer:avrdude \
+&& sleep 15 && \
 make handwired/dactyl_manuform/5x6_5:arcticlimer:avrdude
 ```
 
